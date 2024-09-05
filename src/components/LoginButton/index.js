@@ -1,11 +1,14 @@
-import {View, Text,TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from './styles';
 
-const LoginButton = () => {
+const LoginButton = ({handleSubmit}) => {
   return (
     <View style={styles.button_conteiner}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          handleSubmit;
+        }}>
         <View style={styles.login_button}>
           <Text style={styles.login_text}>Log in</Text>
         </View>

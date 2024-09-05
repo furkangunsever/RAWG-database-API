@@ -10,19 +10,29 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    color:"white",
-    width:windowWidth*0.7,
-    height: windowHeight*0.05,
+    color: 'white',
+    width: windowWidth * 0.7,
+    height: windowHeight * 0.05,
     borderColor: 'gray',
     borderBottomWidth: 1,
     marginBottom: 16,
     paddingHorizontal: 8,
   },
-  icon_size:{
-    width:windowWidth*0.07,
-    height:windowWidth*0.07,
-    resizeMode:'contain',
-    marginRight:5
-  }
+  icon_size: {
+    width: windowWidth * 0.07,
+    height: windowWidth * 0.07,
+    resizeMode: 'contain',
+    marginRight: 5,
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 12,
+    marginTop:-windowWidth*0.05
+  },
+  successText: {
+    color: 'pink',
+    fontSize: 16,
+    marginTop: 16,
+  },
 });
 export default styles;
