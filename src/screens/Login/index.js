@@ -2,8 +2,10 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {LoginButton, TextField} from '../../components';
+import {RouterNames} from '../../config';
 
-const Login = () => {
+const Login = props => {
+  const {navigation} = props;
   return (
     <View style={styles.main_background}>
       <View style={styles.conteiner}>
@@ -13,7 +15,12 @@ const Login = () => {
         <View style={styles.input_conteiner}>
           <TextField />
         </View>
-        <LoginButton />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate(RouterNames.HOMEPAGE);
+          }}>
+          <LoginButton />
+        </TouchableOpacity>
       </View>
     </View>
   );

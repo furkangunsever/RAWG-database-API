@@ -4,7 +4,8 @@ import styles from './styles';
 import {rawg} from '../../assets/images';
 import {InfoConteiner, SearchBar} from '../../components';
 
-const HomeScreen = () => {
+const HomeScreen = props => {
+  const {navigation} = props;
   return (
     <View style={styles.conteiner}>
       <View>
