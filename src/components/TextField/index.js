@@ -1,10 +1,13 @@
-import {View, Text, TextInput, Image, Button} from 'react-native';
+import {View, Text, TextInput, Image, Button, Alert} from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
 import {padlock, user} from '../../assets/icons';
+import {RouterNames} from '../../config';
+import {useNavigation} from '@react-navigation/native';
 
-const TextField = () => {
-  const [text, setText] = useState('');
+const TextField = props => {
+  const navigation = useNavigation();
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [borderColor, setBorderColor] = useState('gray');
   const [lockBorderColor, setLockBorderColor] = useState('gray');
@@ -12,8 +15,42 @@ const TextField = () => {
   const [passwordError, setPasswordError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
+  const dummyUsers = [
+    {
+      username: 'Furkan',
+      password: 'Furkan123.',
+    },
+    {
+      username: 'Ali',
+      password: 'Ali123.',
+    },
+    {
+      username: 'Ayse',
+      password: 'Ayse123.',
+    },
+    {
+      username: 'Arda',
+      password: 'Arda123.',
+    },
+    {
+      username: 'Mete',
+      password: 'Mete123.',
+    },
+  ];
+  const handleLogin = () => {
+    const foundUser = dummyUsers.find(
+      user => user.username === username && user.password === password,
+    );
+
+    if (foundUser) {
+      navigation.navigate(RouterNames.HOMEPAGE);
+    } else {
+      Alert.alert('Hata', 'Kullanıcı adı veya şifre hatalı!');
+    }
+  };
+
   const validateUsername = () => {
-    if (text.trim() === '') {
+    if (username.trim() === '') {
       setUsernameError('Kullanıcı adı boş olamaz');
       setBorderColor('red');
     } else {
@@ -57,8 +94,8 @@ const TextField = () => {
           style={[styles.input, {borderColor: borderColor}]}
           onFocus={() => setBorderColor('orange')}
           onBlur={() => setBorderColor('gray')}
-          onChangeText={setText}
-          value={text}
+          onChangeText={setUsername}
+          value={username}
           placeholder="Kullanıcı adı giriniz"
           placeholderTextColor="gray"
         />
@@ -86,7 +123,7 @@ const TextField = () => {
           <Text style={styles.errorText}>{passwordError}</Text>
         ) : null}
       </View>
-      <Button title="Gönder" onPress={handleSubmit} />
+      <Button title="Gönder" onPress={handleLogin} />
       {successMessage ? (
         <Text style={styles.successText}>{successMessage}</Text>
       ) : null}

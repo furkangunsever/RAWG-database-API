@@ -1,12 +1,15 @@
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import React from 'react';
 import styles from './styles';
 
-const InfoConteiner = () => {
+const InfoConteiner = ({name, image}) => {
   return (
     <View style={styles.conteiner}>
       <View style={styles.info_contein}>
-        <View style={styles.image_contein}></View>
+        <Image source={{uri: image}} style={styles.image_contein} />
+        <View style={styles.text_contein}>
+          <Text style={styles.itemText}>{name}</Text>
+        </View>
       </View>
     </View>
   );

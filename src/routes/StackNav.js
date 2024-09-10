@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RouterNames} from '../config/';
-import {HomeScreen, Login} from '../screens';
+import {Login} from '../screens';
 import TabNav from './TabNav';
 
 const Stack = createNativeStackNavigator();

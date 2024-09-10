@@ -5,9 +5,10 @@ const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     conteiner:{
+        flex:1,
         width:windowWidth,
         height:windowHeight*0.4,
-        backgroundColor:"red",
+        backgroundColor:"black",
         justifyContent:'center',
         alignItems:'center'
     },
@@ -23,6 +24,19 @@ const styles = StyleSheet.create({
         backgroundColor:"black",
         borderTopLeftRadius:windowWidth*0.05,
         borderTopRightRadius:windowWidth*0.05
+    },
+    itemText:{
+        fontSize:windowWidth*0.05,
+        fontWeight:'600',
+        color:"white",
+        margin:windowWidth*0.03
+    },
+    text_contein:{
+        backgroundColor:"#202020",
+        height:windowHeight*0.1,
+        width:windowWidth*0.5,
+        justifyContent:'center'
+        
     }
 });
 export default styles;
