@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     conteiner:{
         flex:1,
         width:windowWidth,
-        height:windowHeight*0.4,
+        height:windowWidth*0.85,
         backgroundColor:"black",
         justifyContent:'center',
         alignItems:'center'
@@ -25,18 +25,27 @@ const styles = StyleSheet.create({
         borderTopLeftRadius:windowWidth*0.05,
         borderTopRightRadius:windowWidth*0.05
     },
+    text_contein:{
+        justifyContent:'space-between',
+        alignItems:'flex-start',
+        height:windowWidth*0.2,
+        width:windowWidth*0.5
+    },
     itemText:{
         fontSize:windowWidth*0.05,
         fontWeight:'600',
         color:"white",
-        margin:windowWidth*0.03
+        margin:windowWidth*0.02
     },
-    text_contein:{
-        backgroundColor:"#202020",
-        height:windowHeight*0.1,
-        width:windowWidth*0.5,
-        justifyContent:'center'
-        
+    favorite:{
+        alignItems:'flex-end',
+        justifyContent:'flex-start',
+        width:windowWidth*0.35
+    },
+    released:{
+        color:"white",
+        margin:windowWidth*0.02
     }
+    
 });
 export default styles;

@@ -4,8 +4,8 @@ import styles from './styles';
 const FavoriteScreen = props => {
     const {navigation} = props;
   return (
-    <View>
-      <Text onPress={()=>{navigation.navigate(RouterNames.HOMEPAGE)}}>FavoriteScreen</Text>
+    <View style={{backgroundColor:"#202020",flex:1}}>
+      <Text style={{color:"white"}}>FavoriteScreen</Text>
     </View>
   );
 };

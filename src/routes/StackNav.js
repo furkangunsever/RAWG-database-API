@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RouterNames} from '../config/';
-import {Login} from '../screens';
+import {DetailScreen, Login} from '../screens';
 import TabNav from './TabNav';
 
 const Stack = createNativeStackNavigator();
@@ -12,6 +12,7 @@ export default StackNav = () => {
       initialRouteName={RouterNames.LOGIN}
       screenOptions={{headerShown: false}}>
       <Stack.Screen name={RouterNames.LOGIN} component={Login} />
+      <Stack.Screen name={RouterNames.DETAİLSCREEN} component={DetailScreen} />
       <Stack.Screen name={RouterNames.HOMEPAGE} component={TabNav} />
     </Stack.Navigator>
   );

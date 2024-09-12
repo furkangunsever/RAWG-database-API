@@ -1,7 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {RouterNames} from '../config';
-import {NavigationContainer} from '@react-navigation/native';
 import {FavoriteScreen, HomeScreen, ProfileScreen} from '../screens';
 
 const Tab = createBottomTabNavigator();

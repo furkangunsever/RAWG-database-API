@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, FlatList, ActivityIndicator} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  ActivityIndicator,
+  ScrollView,
+} from 'react-native';
 import styles from './styles';
 import {fetchGames} from '../../service/api';
 import {InfoConteiner, SearchBar} from '../../components';
@@ -52,7 +59,26 @@ const HomeScreen = () => {
         data={games}
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
-          <InfoConteiner name={item.name} image={item.background_image} />
+          <InfoConteiner
+            name={item.name}
+            image={item.background_image}
+            released={item.released}
+            // ratings={item.platforms.map((platform, index) => (
+            //   <View
+            //     style={{backgroundColor: 'blue',width:400,height:200}}
+            //     key={platform.platform.id}>
+            //       <Text style={styles.platform}>{platform.platform.name}</Text>
+            //     {platform.requirements_en &&
+            //     platform.requirements_en.minimum ? (
+            //       <Text style={{color: 'white'}}>
+            //         {platform.requirements_en.minimum}
+            //       </Text>
+            //     ) : (
+            //       <Text style={{color: 'white'}}></Text>
+            //     )}
+            //   </View>
+            // ))}
+          />
         )}
       />
     </View>

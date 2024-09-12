@@ -6,10 +6,9 @@ const BASE_URL = 'https://api.rawg.io/api/games';
 export const fetchGames = async () => {
     try {
       const response = await axios.get(`${BASE_URL}?key=${API_KEY}`);
-      //console.log('API yanıtı:', response.data);
+      console.log('API yanıtı:', response.data);
       return response.data.results;
     } catch (error) {
-      console.error('API isteği başarısız:', error.response ? error.response.data : error.message);
       throw error;
     }
   };

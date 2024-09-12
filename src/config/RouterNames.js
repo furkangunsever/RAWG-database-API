@@ -3,4 +3,5 @@ export default RouterNames = {
     HOMEPAGE:'HomeScreen',
     FAVORITESCREEN:'FavoriteScreen',
     PROFILESCREEN:'ProfileScreen',
+    DETAİLSCREEN:'DetailScreen'
 };
