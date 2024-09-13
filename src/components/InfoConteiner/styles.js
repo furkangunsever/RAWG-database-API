@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     },
     released:{
         color:"white",
-        margin:windowWidth*0.02
+        margin:windowWidth*0.01
     }
     
 });

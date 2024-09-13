@@ -6,11 +6,16 @@ import {
   FlatList,
   ActivityIndicator,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import styles from './styles';
 import {fetchGames} from '../../service/api';
 import {InfoConteiner, SearchBar} from '../../components';
 import {rawg} from '../../assets/images';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 const HomeScreen = () => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -63,21 +68,28 @@ const HomeScreen = () => {
             name={item.name}
             image={item.background_image}
             released={item.released}
-            // ratings={item.platforms.map((platform, index) => (
-            //   <View
-            //     style={{backgroundColor: 'blue',width:400,height:200}}
-            //     key={platform.platform.id}>
-            //       <Text style={styles.platform}>{platform.platform.name}</Text>
-            //     {platform.requirements_en &&
-            //     platform.requirements_en.minimum ? (
-            //       <Text style={{color: 'white'}}>
-            //         {platform.requirements_en.minimum}
-            //       </Text>
-            //     ) : (
-            //       <Text style={{color: 'white'}}></Text>
-            //     )}
-            //   </View>
-            // ))}
+            genres={item.genres[0].name}
+            rating={item.rating}
+            tags={item.tags[1].name}
+            ratings={item.platforms.map(platform => (
+              <View
+                style={{
+                  width: windowWidth * 1,
+                  height: windowHeight * 0.8,
+                  backgroundColor: '#151515',
+                  paddingLeft: windowWidth * 0.05,
+                }}
+                key={platform.platform.id}>
+                {platform.requirements_en &&
+                platform.requirements_en.minimum ? (
+                  <Text style={{color: 'white'}}>
+                    {platform.requirements_en.minimum}
+                  </Text>
+                ) : (
+                  <Text style={{color: 'white'}}></Text>
+                )}
+              </View>
+            ))}
           />
         )}
       />
