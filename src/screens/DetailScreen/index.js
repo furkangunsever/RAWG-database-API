@@ -1,14 +1,20 @@
-import {View, Text, Button, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import { ArrowButton } from '../../components';
+import {ArrowButton} from '../../components';
 const DetailScreen = ({navigation, route}) => {
   const {name, ratings, image, genres, rating, tags, released} = route.params;
   return (
     <View style={styles.conteiner}>
       <ScrollView>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <ArrowButton/>
+          <ArrowButton />
         </TouchableOpacity>
         <View style={styles.text_contein}>
           <Text style={styles.game_name}>{name}</Text>
@@ -43,21 +49,6 @@ const DetailScreen = ({navigation, route}) => {
         <View style={styles.minimum_contein}>
           <Text style={styles.released_text}>{ratings}</Text>
         </View>
-
-        {/* <Text>Tags:{tags}</Text>
-      <Text>Türü:{genres}</Text>
-      <Button
-        style={styles.goBack}
-        title="geri"
-        onPress={() => navigation.goBack()}
-      />
-      <Text>Rating:{rating}</Text>
-      <View>
-        <Image source={{uri: image}} style={styles.image_contein} />
-      </View>
-      <Text>{name}</Text>
-      <Text>{ratings}</Text>
-      <Text>Türü:{genres}</Text> */}
       </ScrollView>
     </View>
   );

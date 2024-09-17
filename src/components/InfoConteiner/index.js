@@ -1,9 +1,10 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {View, Text, Image, TouchableOpacity, Button} from 'react-native';
+import React, {useContext} from 'react';
 import styles from './styles';
 import {RouterNames} from '../../config';
 import {useNavigation} from '@react-navigation/native';
-import {FavoritIcon} from '..';
+import {FavoriteIcon} from '..';
+import {FavoritesContext} from '../../contexts/FavoritesContext';
 
 const InfoConteiner = ({
   name,
@@ -13,6 +14,7 @@ const InfoConteiner = ({
   genres,
   rating,
   tags,
+  id,
 }) => {
   const navigation = useNavigation();
   return (
@@ -26,7 +28,8 @@ const InfoConteiner = ({
             genres,
             rating,
             tags,
-            released
+            released,
+            id,
           });
         }}>
         <View style={styles.info_contein}>
@@ -37,10 +40,16 @@ const InfoConteiner = ({
             <View style={styles.text_contein}>
               <Text style={styles.itemText}>{name}</Text>
               <Text style={styles.released}>Çıkış Tarihi: {released}</Text>
-              <Text style={styles.released}>Rating: {rating} ⭐</Text>
+              <Text style={styles.released}>Ratinig: {rating} ⭐</Text>
             </View>
             <View style={styles.favorite}>
-              <FavoritIcon />
+              <FavoriteIcon
+              id={id}
+              name={name}
+              image={image}
+              rating={rating}
+              released={released}
+            />
             </View>
           </View>
         </View>

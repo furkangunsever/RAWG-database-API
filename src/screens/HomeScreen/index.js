@@ -65,6 +65,7 @@ const HomeScreen = () => {
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
           <InfoConteiner
+            id ={item.id}
             name={item.name}
             image={item.background_image}
             released={item.released}

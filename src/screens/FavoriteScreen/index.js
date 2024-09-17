@@ -1,13 +1,37 @@
-import {View, Text} from 'react-native';
-import React from 'react';
-import styles from './styles';
-const FavoriteScreen = props => {
-    const {navigation} = props;
+import React, {useContext} from 'react';
+import {View, FlatList, Text} from 'react-native';
+import {FavoritesContext} from '../../contexts/FavoritesContext';
+import InfoConteiner from '../../components/InfoConteiner';
+
+const FavoritesScreen = () => {
+  const {favorites} = useContext(FavoritesContext);
+  console.log(favorites);
   return (
-    <View style={{backgroundColor:"#202020",flex:1}}>
-      <Text style={{color:"white"}}>FavoriteScreen</Text>
+    <View style={{flex: 1, backgroundColor: 'black'}}>
+      {favorites.length > 0 ? (
+        <FlatList
+          data={favorites}
+          keyExtractor={item =>
+            item.id ? item.id.toString() : Math.random().toString()
+          }
+          renderItem={({item}) => (
+            <InfoConteiner
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              released={item.released}
+              rating={item.rating}
+            />
+            
+          )}
+        />
+      ) : (
+        <Text style={{color: 'white', textAlign: 'center', marginTop: 20}}>
+          Henüz favori eklenmedi.
+        </Text>
+      )}
     </View>
   );
 };
 
-export default FavoriteScreen;
+export default FavoritesScreen;
