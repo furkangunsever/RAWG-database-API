@@ -3,6 +3,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   conteiner: {
+    flex:1,
     width: windowWidth,
     height: windowHeight,
     backgroundColor: '#151515',
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#151515',
     alignItems: 'center',
     justifyContent: 'space-around',
+    zIndex:1
   },
   image_conteiner: {
     resizeMode: 'contain',

@@ -26,7 +26,7 @@ const FavoritesScreen = () => {
           )}
         />
       ) : (
-        <Text style={{color: 'white', textAlign: 'center', marginTop: 20}}>
+        <Text style={{color: 'white', textAlign: 'center', marginTop: 400}}>
           Henüz favori eklenmedi.
         </Text>
       )}

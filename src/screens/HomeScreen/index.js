@@ -18,13 +18,16 @@ const windowHeight = Dimensions.get('window').height;
 
 const HomeScreen = () => {
   const [games, setGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const [lastSearchedGames, setLastSearchedGames] = useState([]);
   useEffect(() => {
     const getGames = async () => {
       try {
         const gameList = await fetchGames();
         setGames(gameList);
+        setFilteredGames(gameList);
         setLoading(false);
       } catch (error) {
         console.error('Oyunları çekerken hata oluştu:', error);
@@ -35,6 +38,25 @@ const HomeScreen = () => {
     getGames();
   }, []);
 
+  useEffect(() => {
+    if (typeof searchTerm !== 'string') return;
+    if (searchTerm.trim() === '') {
+      // Eğer arama terimi boşsa tüm oyunları göster
+      setFilteredGames(games);
+    } else {
+      const filtered = games.filter(game =>
+        game.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+  
+      if (filtered.length > 0) {
+        setFilteredGames(filtered); // Eşleşen oyunlar varsa bunları göster
+        setLastSearchedGames(filtered); // Sonuçları kaydet
+      } else {
+        setFilteredGames(lastSearchedGames); // Eşleşme yoksa son listelenen oyunları göster
+      }
+    }
+  }, [searchTerm, games]);
+
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -44,7 +66,7 @@ const HomeScreen = () => {
     );
   }
 
-  if (games.length === 0) {
+  if (filteredGames.length === 0) {
     return (
       <View style={styles.noGameContainer}>
         <Text>Oyun bulunamadı</Text>
@@ -53,19 +75,19 @@ const HomeScreen = () => {
   }
 
   return (
-    <View>
+    <View style={{flex:1,backgroundColor:"black"}}>
       <View style={styles.tabbar}>
         <Image style={styles.image_conteiner} source={rawg} />
-        <View>
-          <SearchBar />
+        <View style={{zIndex: 1}}>
+          <SearchBar onSearch={(term) => setSearchTerm(term)} />
         </View>
       </View>
       <FlatList
-        data={games}
+        data={filteredGames}
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
           <InfoConteiner
-            id ={item.id}
+            id={item.id}
             name={item.name}
             image={item.background_image}
             released={item.released}
@@ -87,7 +109,9 @@ const HomeScreen = () => {
                     {platform.requirements_en.minimum}
                   </Text>
                 ) : (
-                  <Text style={{color: 'white'}}></Text>
+                  <Text style={{color: 'white'}}>
+                    Şuan Bu Veriye Erişilemiyor
+                  </Text>
                 )}
               </View>
             ))}
