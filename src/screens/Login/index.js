@@ -15,12 +15,6 @@ const Login = props => {
         <View style={styles.input_conteiner}>
           <TextField />
         </View>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate(RouterNames.HOMEPAGE);
-          }}>
-          <LoginButton />
-        </TouchableOpacity>
       </View>
     </View>
   );

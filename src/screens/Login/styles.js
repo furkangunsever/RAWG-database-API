@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     padding:windowWidth*0.1,
   },
   login_conteiner: {
-    marginTop:windowWidth*0.2,
+    alignItems:'baseline'
   },
   login_text: {
     fontSize: windowWidth * 0.1,
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   input_conteiner:{
-    marginTop:windowWidth*0.5,
+    marginTop:windowHeight*0.3,
   }
 });
 export default styles;

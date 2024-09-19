@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   input_conteiner: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: windowHeight*0.02,
   },
   input: {
     color: 'white',
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.05,
     borderColor: 'gray',
     borderBottomWidth: 1,
-    marginBottom: 16,
+    marginBottom:windowHeight*0.01,
     paddingHorizontal: 8,
   },
   icon_size: {

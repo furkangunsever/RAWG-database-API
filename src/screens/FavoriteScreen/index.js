@@ -7,7 +7,7 @@ const FavoritesScreen = () => {
   const {favorites} = useContext(FavoritesContext);
   console.log(favorites);
   return (
-    <View style={{flex: 1, backgroundColor: 'black'}}>
+    <View style={{flex: 1, backgroundColor: 'black',justifyContent:'center'}}>
       {favorites.length > 0 ? (
         <FlatList
           data={favorites}
@@ -26,7 +26,7 @@ const FavoritesScreen = () => {
           )}
         />
       ) : (
-        <Text style={{color: 'white', textAlign: 'center', marginTop: 400}}>
+        <Text style={{color: 'white', textAlign: 'center'}}>
           Henüz favori eklenmedi.
         </Text>
       )}

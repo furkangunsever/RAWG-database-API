@@ -1,9 +1,10 @@
-import {View, Text, TextInput, Image, Button, Alert} from 'react-native';
-import React, {useState} from 'react';
+import { View, Text, TextInput, Image, Alert } from 'react-native';
+import React, { useState } from 'react';
 import styles from './styles';
-import {padlock, user} from '../../assets/icons';
-import {RouterNames} from '../../config';
-import {useNavigation} from '@react-navigation/native';
+import { padlock, user } from '../../assets/icons';
+import { RouterNames } from '../../config';
+import { useNavigation } from '@react-navigation/native';
+import LoginButton from '../LoginButton';
 
 const TextField = props => {
   const navigation = useNavigation();
@@ -13,30 +14,15 @@ const TextField = props => {
   const [lockBorderColor, setLockBorderColor] = useState('gray');
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
   const dummyUsers = [
-    {
-      username: 'Furkan',
-      password: 'Furkan123.',
-    },
-    {
-      username: 'Ali',
-      password: 'Ali123.',
-    },
-    {
-      username: 'Ayse',
-      password: 'Ayse123.',
-    },
-    {
-      username: 'Arda',
-      password: 'Arda123.',
-    },
-    {
-      username: 'Mete',
-      password: 'Mete123.',
-    },
+    { username: 'Furkan', password: 'Furkan123.' },
+    { username: 'Ali', password: 'Ali123.' },
+    { username: 'Ayse', password: 'Ayse123.' },
+    { username: 'Arda', password: 'Arda123.' },
+    { username: 'Mete', password: 'Mete123.' },
   ];
+
   const handleLogin = () => {
     const foundUser = dummyUsers.find(
       user => user.username === username && user.password === password,
@@ -77,21 +63,21 @@ const TextField = props => {
       setLockBorderColor('gray');
     }
   };
+
   const handleSubmit = () => {
     validateUsername();
     validatePassword();
     if (!usernameError && !passwordError) {
-      setSuccessMessage('Başarıyla giriş yapıldı!');
-    } else {
-      setSuccessMessage('');
-    }
+      handleLogin();
+    } 
   };
+
   return (
     <View>
       <View style={styles.input_conteiner}>
         <Image style={styles.icon_size} source={user} />
         <TextInput
-          style={[styles.input, {borderColor: borderColor}]}
+          style={[styles.input, { borderColor: borderColor }]}
           onFocus={() => setBorderColor('orange')}
           onBlur={() => setBorderColor('gray')}
           onChangeText={setUsername}
@@ -108,7 +94,7 @@ const TextField = props => {
       <View style={styles.input_conteiner}>
         <Image style={styles.icon_size} source={padlock} />
         <TextInput
-          style={[styles.input, {borderColor: lockBorderColor}]}
+          style={[styles.input, { borderColor: lockBorderColor }]}
           onFocus={() => setLockBorderColor('orange')}
           onBlur={() => setLockBorderColor('gray')}
           onChangeText={setPassword}
@@ -123,10 +109,7 @@ const TextField = props => {
           <Text style={styles.errorText}>{passwordError}</Text>
         ) : null}
       </View>
-      <Button title="Gönder" onPress={handleLogin} />
-      {successMessage ? (
-        <Text style={styles.successText}>{successMessage}</Text>
-      ) : null}
+      <LoginButton handleSubmit={handleSubmit} />
     </View>
   );
 };

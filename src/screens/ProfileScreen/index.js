@@ -2,6 +2,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {profile_image} from '../../assets/images';
+import { RouterNames } from '../../config';
 const ProfileScreen = props => {
   const {navigation} = props;
   return (
@@ -19,7 +20,7 @@ const ProfileScreen = props => {
       </View>
       <View style={[styles.profile_contein, {borderColor: '#202020'}]}>
         <View style={styles.name_contein}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate(RouterNames.LOGIN)}}>
             <View style={styles.button}>
               <Text style={styles.button_text}>Çıkış Yap</Text>
             </View>
