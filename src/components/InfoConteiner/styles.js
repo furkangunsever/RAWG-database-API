@@ -7,14 +7,14 @@ const styles = StyleSheet.create({
     conteiner:{
         flex:1,
         width:windowWidth,
-        height:windowWidth*0.85,
+        height:windowHeight*0.45,
         backgroundColor:"black",
         justifyContent:'center',
         alignItems:'center'
     },
     info_contein:{
         width:windowWidth*0.9,
-        height:windowWidth*0.8,
+        height:windowHeight*0.42,
         backgroundColor:"#202020",
         borderRadius:windowWidth*0.05
     },
@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
         height:windowHeight*0.24,
         backgroundColor:"black",
         borderTopLeftRadius:windowWidth*0.05,
-        borderTopRightRadius:windowWidth*0.05
+        borderTopRightRadius:windowWidth*0.05,
+        resizeMode:'cover'
     },
     text_contein:{
         justifyContent:'space-between',
         alignItems:'flex-start',
-        height:windowWidth*0.2,
+        height:windowWidth*0.1,
         width:windowWidth*0.5
     },
     itemText:{
@@ -44,7 +45,8 @@ const styles = StyleSheet.create({
     },
     released:{
         color:"white",
-        margin:windowWidth*0.01
+        margin:windowWidth*0.01,
+        fontSize:windowWidth*0.035
     }
     
 });

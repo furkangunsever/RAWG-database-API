@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     fontSize: 12,
-    marginTop:-windowWidth*0.05
+    marginTop:-windowHeight*0.02
   },
   successText: {
     color: 'pink',

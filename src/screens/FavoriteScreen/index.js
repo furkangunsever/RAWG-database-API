@@ -1,13 +1,14 @@
 import React, {useContext} from 'react';
-import {View, FlatList, Text} from 'react-native';
+import {View, FlatList, Text, Dimensions} from 'react-native';
 import {FavoritesContext} from '../../contexts/FavoritesContext';
 import InfoConteiner from '../../components/InfoConteiner';
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 const FavoritesScreen = () => {
   const {favorites} = useContext(FavoritesContext);
   console.log(favorites);
   return (
-    <View style={{flex: 1, backgroundColor: 'black',justifyContent:'center'}}>
+    <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center'}}>
       {favorites.length > 0 ? (
         <FlatList
           data={favorites}
@@ -22,11 +23,15 @@ const FavoritesScreen = () => {
               released={item.released}
               rating={item.rating}
             />
-            
           )}
         />
       ) : (
-        <Text style={{color: 'white', textAlign: 'center'}}>
+        <Text
+          style={{
+            color: 'white',
+            textAlign: 'center',
+            fontSize: windowWidth * 0.03,
+          }}>
           Henüz favori eklenmedi.
         </Text>
       )}

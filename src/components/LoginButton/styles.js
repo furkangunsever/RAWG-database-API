@@ -6,7 +6,7 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   button_conteiner: {
     alignItems: 'center',
-    marginTop: windowWidth * 0.1,
+    marginTop: windowHeight * 0.1,
   },
   login_button: {
     width: windowWidth * 0.5,

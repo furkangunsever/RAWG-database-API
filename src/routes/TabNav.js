@@ -2,8 +2,13 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {RouterNames} from '../config';
 import {FavoriteScreen, HomeScreen, ProfileScreen} from '../screens';
-import {home, search, user, white_heart} from '../assets/icons';
-import {Image,Text} from 'react-native';
+import {home,user, white_heart} from '../assets/icons';
+import {Image,Text,Dimensions,StyleSheet} from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+
 const Tab = createBottomTabNavigator();
 
 export default function TabNav() {
@@ -26,8 +31,8 @@ export default function TabNav() {
             <Image
               source={iconSource}
               style={{
-                width: 24,
-                height: 24,
+                width: windowWidth*0.05,
+                height: windowWidth*0.05,
                 tintColor: focused ? 'tomato' : 'gray',
               }}
             />
@@ -46,7 +51,7 @@ export default function TabNav() {
           return (
             <Text style={{ 
               color: focused ? 'tomato' : 'gray', 
-              fontSize: 12 
+              fontSize: windowWidth*0.03 
             }}>
               {label}
             </Text>
@@ -54,8 +59,7 @@ export default function TabNav() {
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
-        tabBarStyle: {backgroundColor: 'black', borderTopWidth: 0},
-        tabBarLabelStyle: {fontSize: 12},
+        tabBarStyle: {backgroundColor: 'black', borderTopWidth: 0}
       })}>
       <Tab.Screen name={RouterNames.HOMEPAGE} component={HomeScreen} />
       <Tab.Screen

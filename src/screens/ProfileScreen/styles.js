@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   text_contein: {
     backgroundColor: '#202020',
     width: windowWidth,
-    height: windowWidth * 0.15,
+    height: windowHeight * 0.1,
     alignItems:'center',
     justifyContent:'center'
   },
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     margin:windowWidth*0.05,
     backgroundColor:"#202020",
     width:windowWidth*0.9,
-    height:windowWidth*0.7,
+    height:windowHeight*0.4,
     borderBottomWidth:1,
     borderColor:"white",
     alignItems:'center',
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   name_contein:{
     width:windowWidth*0.7,
-    height:windowWidth*0.15,
+    height:windowHeight*0.07,
     backgroundColor:"#202020",
     alignItems:'center',
     justifyContent:'center'

@@ -45,9 +45,9 @@ const HomeScreen = () => {
       setFilteredGames(games);
     } else {
       const filtered = games.filter(game =>
-        game.name.toLowerCase().includes(searchTerm.toLowerCase())
+        game.name.toLowerCase().includes(searchTerm.toLowerCase()),
       );
-  
+
       if (filtered.length > 0) {
         setFilteredGames(filtered); // Eşleşen oyunlar varsa bunları göster
         setLastSearchedGames(filtered); // Sonuçları kaydet
@@ -75,11 +75,11 @@ const HomeScreen = () => {
   }
 
   return (
-    <View style={{flex:1,backgroundColor:"black"}}>
+    <View style={{flex: 1, backgroundColor: 'black'}}>
       <View style={styles.tabbar}>
         <Image style={styles.image_conteiner} source={rawg} />
         <View style={{zIndex: 1}}>
-          <SearchBar onSearch={(term) => setSearchTerm(term)} />
+          <SearchBar onSearch={term => setSearchTerm(term)} />
         </View>
       </View>
       <FlatList
@@ -105,11 +105,11 @@ const HomeScreen = () => {
                 key={platform.platform.id}>
                 {platform.requirements_en &&
                 platform.requirements_en.minimum ? (
-                  <Text style={{color: 'white'}}>
+                  <Text style={{color: 'white', fontSize: windowWidth * 0.03}}>
                     {platform.requirements_en.minimum}
                   </Text>
                 ) : (
-                  <Text style={{color: 'white'}}>
+                  <Text style={{color: 'white', fontSize: windowWidth * 0.03}}>
                     Şuan Bu Veriye Erişilemiyor
                   </Text>
                 )}
