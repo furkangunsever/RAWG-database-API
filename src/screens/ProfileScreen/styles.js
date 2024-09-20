@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     width: windowWidth,
     height: windowHeight * 0.1,
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    marginTop:windowWidth*0.025
   },
   profile_text:{
     fontSize:windowWidth*0.05,
