@@ -75,7 +75,7 @@ const HomeScreen = () => {
   }
 
   return (
-    <View style={{flex: 1, backgroundColor: 'black'}}>
+    <View style={{flex: 1, backgroundColor: 'black',paddingTop:windowHeight*0.03}}>
       <View style={styles.tabbar}>
         <Image style={styles.image_conteiner} source={rawg} />
         <View style={{zIndex: 1}}>
@@ -94,7 +94,7 @@ const HomeScreen = () => {
             genres={item.genres[0].name}
             rating={item.rating}
             tags={item.tags[1].name}
-            ratings={item.platforms.map(platform => (
+            ratings={item.platforms?.map(platform => (
               <View
                 style={{
                   width: windowWidth * 1,

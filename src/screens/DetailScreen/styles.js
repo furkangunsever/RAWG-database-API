@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
   conteiner: {
     flex: 1,
     backgroundColor: '#151515',
+    paddingTop:windowHeight*0.03
   },
   goBack: {
     width: windowWidth * 0.1,

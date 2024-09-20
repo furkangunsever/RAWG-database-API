@@ -4,7 +4,6 @@ import styles from './styles';
 import {RouterNames} from '../../config';
 import {useNavigation} from '@react-navigation/native';
 import {FavoriteIcon} from '..';
-import {FavoritesContext} from '../../contexts/FavoritesContext';
 
 const InfoConteiner = ({
   name,

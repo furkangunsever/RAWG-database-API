@@ -8,7 +8,7 @@ const FavoritesScreen = () => {
   const {favorites} = useContext(FavoritesContext);
   console.log(favorites);
   return (
-    <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center'}}>
+    <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center',paddingTop:windowHeight*0.03}}>
       {favorites.length > 0 ? (
         <FlatList
           data={favorites}
